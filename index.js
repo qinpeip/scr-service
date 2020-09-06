@@ -5,7 +5,7 @@ const path = require('path');
 const session = require('koa-session2');
 const passport = require('./auth/passport_config');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/scr', {useNewUrlParser: true,
+mongoose.connect('mongodb://feisha:a741323823@localhost/scr', {useNewUrlParser: true,
 useUnifiedTopology:true, useFindAndModify: true}, err => {
   if (err) {
     console.log('数据库连接失败:', err);
