@@ -24,7 +24,7 @@ app.use(cors({
   origin: ctx => ctx.headers.origin,
   credentials: true
 }))
-app.use(static(__dirname + `./www`))
+app.use(static(`./www`))
 app.use(session({key: 'SESSIONID', maxAge: 24*60*60*1000}));
 app.use(koaBody({
   multipart: true,
