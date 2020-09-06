@@ -5,6 +5,7 @@ const path = require('path');
 const session = require('koa-session2');
 const passport = require('./auth/passport_config');
 const mongoose = require('mongoose');
+const static = require('koa-static');
 mongoose.connect('mongodb://feisha:a741323823@localhost/scr', {useNewUrlParser: true,
 useUnifiedTopology:true, useFindAndModify: true}, err => {
   if (err) {
@@ -23,6 +24,7 @@ app.use(cors({
   origin: ctx => ctx.headers.origin,
   credentials: true
 }))
+app.use(static(__dirname + `./www`))
 app.use(session({key: 'SESSIONID', maxAge: 24*60*60*1000}));
 app.use(koaBody({
   multipart: true,
