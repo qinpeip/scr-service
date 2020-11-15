@@ -6,8 +6,8 @@ const session = require('koa-session2');
 const passport = require('./auth/passport_config');
 const mongoose = require('mongoose');
 const static = require('koa-static');
-// const sqlUrl = 'mongodb://feisha:a741323823@localhost/scr';
-const sqlUrl = 'mongodb://localhost/scr';
+const sqlUrl = 'mongodb://feisha:a741323823@localhost/scr';
+// const sqlUrl = 'mongodb://localhost/scr';
 mongoose.connect(sqlUrl, {useNewUrlParser: true,
 useUnifiedTopology:true, useFindAndModify: true}, err => {
   if (err) {
@@ -39,7 +39,7 @@ app.use(koaBody({
 }));
 app.use(passport.initialize()).use(passport.session())
 app.use(router.routes()).use(router.allowedMethods());
-app.listen(8000, () => {
-  console.log('server in runing 8000')
-});
-// app.listen(80);
+// app.listen(8000, () => {
+//   console.log('server in runing 8000')
+// });
+app.listen(80);
