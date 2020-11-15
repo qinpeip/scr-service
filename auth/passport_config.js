@@ -42,7 +42,6 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(async function (user, done) {
   const data =  await findUser(user.username);
-  console.log('find data', data);
   if (!data) {
     return done(null, false, '用户不存在');
   }
